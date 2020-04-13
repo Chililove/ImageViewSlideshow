@@ -39,6 +39,8 @@ public class Slideshow implements Runnable {
     @Override
     public void run() {
         if (!images.isEmpty()) {
+            
+            try {
             while (!Thread.currentThread().isInterrupted()) {
                 Platform.runLater(() -> {
 
@@ -55,6 +57,7 @@ public class Slideshow implements Runnable {
                  System.out.println("Slideshow was killed");
                  }
            }
+    }
 
     public void stop() {
         executor.shutdownNow();
