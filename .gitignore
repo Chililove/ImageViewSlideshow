@@ -27,3 +27,7 @@ hs_err_pid*
 *.properties
 *.xml
 *.TXT
+*.properties
+*.html
+*.jnlp
+*.jar
