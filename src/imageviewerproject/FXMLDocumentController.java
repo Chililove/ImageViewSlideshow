@@ -29,14 +29,6 @@ public class FXMLDocumentController implements Initializable
     Parent root;
     @FXML
     private Label lblFilename;
-    @FXML
-    private Button btnLoad;
-
-    @FXML
-    private Button btnPrevious;
-
-    @FXML
-    private Button btnNext;
 
     @FXML
     private Button btnStart;
@@ -48,44 +40,6 @@ public class FXMLDocumentController implements Initializable
     private ImageView imageView;
    
   
-/*
-    private void handleBtnLoadAction(ActionEvent event)
-    {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select image files");
-        fileChooser.getExtensionFilters().add(new ExtensionFilter("Images", 
-            "*.png", "*.jpg", "*.gif", "*.tif", "*.bmp"));        
-        List<File> files = fileChooser.showOpenMultipleDialog(new Stage());
-                
-        if (!files.isEmpty())
-        {
-            files.forEach((File f) ->
-            {
-                images.add(new Image(f.toURI().toString()));
-            });
-            displayImage();
-        }
-    }
-
-    private void handleBtnPreviousAction(ActionEvent event)
-    {
-        if (!images.isEmpty())
-        {
-            currentImageIndex = 
-                    (currentImageIndex - 1 + images.size()) % images.size();
-            displayImage();
-        }
-    }
-
-    private void handleBtnNextAction(ActionEvent event)
-    {
-        if (!images.isEmpty())
-        {
-            currentImageIndex = (currentImageIndex + 1) % images.size();
-            displayImage();
-        }
-    }
-*/
     
     @FXML
     private void handleBtnStartAction(ActionEvent event){
@@ -106,16 +60,12 @@ public class FXMLDocumentController implements Initializable
                 images.add(new Image(f.toURI().toString()));
             });
            // displayImage(); instead:
+          
            Slideshow slideshow = new Slideshow(imageView,lblFilename, images, filenames);
            
-           Scheduler.addSlideshow(slideshow);
+           scheduler.addSlideshow(slideshow);
         }
        
-       
-     //  Runnable slideshow = new Slideshow(imageView,images);
-     
-     //  executor = Executors.newSingleThreadExecutor();
-     //  executor.submit(slideshow);
     
     }
     
@@ -124,38 +74,12 @@ public class FXMLDocumentController implements Initializable
         
         scheduler.removeCurrentSlideshow();
         
-      // executor.shutdownNow();
         
-    }
-
-    private void displayImage()
-    {
-        if (!(images.isEmpty()|| filenames.isEmpty() ))
-        {
-            lblFilename.setText(filename.get(currentImageIndex));
-            imageView.setImage(images.get(currentImageIndex));
-        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        /*
-        btnLoad.setOnAction((ActionEvent event) ->
-        {
-            handleBtnLoadAction(event);
-        });
-
-        btnPrevious.setOnAction((ActionEvent event) ->
-        {
-            handleBtnPreviousAction(event);
-        });
-        
-        btnNext.setOnAction((ActionEvent event) ->
-        {
-            handleBtnNextAction(event);
-        });
-*/
         
         btnStart.setOnAction((ActionEvent event) ->
         {

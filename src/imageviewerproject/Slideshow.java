@@ -28,12 +28,14 @@ public class Slideshow implements Runnable {
     private final List<String> filenames;
     private ExecutorService executor;
 
-    public Slideshow(ImageView imageView, List<Image> images, Label label, List<String>filenames) {
+ 
+    public Slideshow(ImageView imageView, Label label, List<Image> images, List<String> filenames) {
+        
         this.imageView = imageView;
         this.images = images;
-        this.lblFilename  = label;
+        this.lblFilename = label;
         this.filenames = filenames;
-
+        
     }
 
     @Override
