@@ -8,7 +8,7 @@
     <update check="always"/>
     <resources>
         <j2se version="9.0.4+" href="http://java.sun.com/products/autodl/j2se"/>
-        <jar href="ImageViewer.jar" size="7715" download="eager"/>
+        <jar href="ImageViewer.jar" size="7693" download="eager"/>
     </resources>
     <jfx:javafx-desc width="800" height="600" main-class="imageviewerproject.ImageViewer" name="ImageViewer"/>
 </jnlp>
