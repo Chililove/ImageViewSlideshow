@@ -18,9 +18,9 @@ import java.util.concurrent.TimeUnit;
 public class Scheduler implements Runnable{
     private Slideshow currentSlideshow = null;
     private BlockingQueue <Slideshow> queue = new LinkedBlockingQueue();
-    private final int TIMESLICE = 4; //20sec
+    private final int TIMESLICE = 4; 
     private ExecutorService executor = null;
-    
+    private int queueEmpty = 0;
   
    @Override
     public void run() {
@@ -70,6 +70,14 @@ public class Scheduler implements Runnable{
         }
     
     }
+    public synchronized boolean isQueueEmpty(){
+    
+        if(queueEmpty==1){
+        return true;
+        }
+        
+        return false;
+    }
     
     public synchronized void removeCurrentSlideshow(){
       if(currentSlideshow!=null){
@@ -77,6 +85,7 @@ public class Scheduler implements Runnable{
         currentSlideshow = null; 
       }
       if(queue.isEmpty()){
+          queueEmpty = 1;
          executor.shutdownNow();
       }
       else{

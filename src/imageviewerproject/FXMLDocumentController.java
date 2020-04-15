@@ -73,6 +73,9 @@ public class FXMLDocumentController implements Initializable
     private void handleBtnStopAction(ActionEvent event){
         
         scheduler.removeCurrentSlideshow();
+        if(scheduler.isQueueEmpty()){
+        imageView.setImage(null);
+        }
         
         
     }

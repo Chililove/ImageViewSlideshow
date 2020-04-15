@@ -20,7 +20,7 @@ import javafx.scene.image.ImageView;
  */
 public class Slideshow implements Runnable {
 
-    private final long DELAY = 1;
+    private final long DELAY = 5; //seconds each picture is shown
     private int index = 0;
     private ImageView imageView;
     private Label lblFilename;
