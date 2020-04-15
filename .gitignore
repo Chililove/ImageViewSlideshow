@@ -32,3 +32,7 @@ hs_err_pid*
 *.jnlp
 *.jar
 *.properties
+build/built-jar.properties
+*.properties
+*.jar
+*.xml
