@@ -53,7 +53,6 @@ public class Scheduler implements Runnable{
         if(executor ==null || executor.isShutdown()){
         executor = Executors.newSingleThreadExecutor();
         executor.submit(this);
-        
         }
         
         if(currentSlideshow ==null && queue.isEmpty()){
@@ -68,14 +67,12 @@ public class Scheduler implements Runnable{
             System.out.println("System scheduler was killed");
            }
         }
-    
     }
-    public synchronized boolean isQueueEmpty(){
     
+    public synchronized boolean isQueueEmpty(){
         if(queueEmpty==1){
         return true;
         }
-        
         return false;
     }
     

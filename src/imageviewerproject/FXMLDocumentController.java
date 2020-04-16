@@ -22,8 +22,7 @@ import javafx.stage.Stage;
 public class FXMLDocumentController implements Initializable
 {
     private final Scheduler scheduler = new Scheduler();
-    private final List<Image> images = new ArrayList<>();
-    private int currentImageIndex = 0;
+   
 
     @FXML
     Parent root;
@@ -76,8 +75,6 @@ public class FXMLDocumentController implements Initializable
         if(scheduler.isQueueEmpty()){
         imageView.setImage(null);
         }
-        
-        
     }
 
     @Override
